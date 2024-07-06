@@ -1,7 +1,6 @@
 const express = require ('express');
 const dotenv = require ('dotenv');
-
- 
+const logger = require ('./middleware/logger');
 
 //Route files
 const bootcamps = require('./routes/bootcamps');
@@ -11,12 +10,7 @@ dotenv.config({path: './config/config.env'});
 
 const app = express();
 
-const logger = (req, res, next) => {
-    req.hello = 'Hello world';
-    console.log('Middleware run');
-    next();
-}
- 
+
 
 app.use(logger);
 
